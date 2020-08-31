@@ -3,7 +3,9 @@ window.onload = function () {
 };
 
 function getCovidStats() {
-  fetch('https://coronavirus-tracker-api.herokuapp.com/v2/latest')
+  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+  url = 'https://coronavirus-tracker-api.herokuapp.com/v2/latest';
+  fetch(proxyurl + url)
     .then(function (resp) {
       return resp.json();
     })
@@ -25,7 +27,8 @@ function getCovidStats() {
       console.log('error');
     });
 
-  fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations/165')
+  const url1 = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations/165';
+  fetch(proxyurl + url1)
     .then(function (resp) {
       return resp.json();
     })
@@ -46,5 +49,5 @@ function getCovidStats() {
     .catch(function () {
       console.log('error');
     });
-  setTimeout(getCovidStats, 43200000);
+  setTimeout(getCovidStats, 3600000);
 }
