@@ -1,0 +1,8 @@
+@page {
+ size: A4;
+}
+
+img {
+ break-after: always;
+ break-inside: avoid;
+}
